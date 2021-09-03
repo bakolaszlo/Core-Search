@@ -5,7 +5,7 @@
       class="header-links"
       style="padding: 0 0 0 15px;"
     >
-      Gmail
+      Vmail
     </a>
     <a
       href="https://www.google.ro/imghp?hl=en"

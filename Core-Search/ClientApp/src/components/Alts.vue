@@ -1,6 +1,6 @@
 <template>
   <div class="alts">
-    Google offered in:
+    Vuegle offered in:
     <a
       href="https://www.google.com/setprefs?sig=0_MGvm-VyiMxwQqFKOFEOyR1VUjec%3D&amp;hl=ro&amp;source=homepage&amp;sa=X&amp;ved=0ahUKEwjkz4ehx5LyAhUZQUEAHUiNAM8Q2ZgBCA4"
     >

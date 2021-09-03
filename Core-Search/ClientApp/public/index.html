@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0
     shrink-to-fit=no"" />
     <link rel="icon" href="../src/assets/title_icon.png" />
-    <title>Google</title>
+    <title>Vuegle</title>
   </head>
   <style>
     body,
@@ -17,14 +17,15 @@
     }
   </style>
   <body style="min-height: 100vh; display: flex; flex-direction: column;">
-    <noscript>
-      <strong
-        >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
-        properly without JavaScript enabled. Please enable it to
-        continue.</strong
-      >
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
+      <noscript>
+          <strong>
+              We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
+              properly without JavaScript enabled. Please enable it to
+              continue.
+          </strong>
+      </noscript>
+      <div id="app"></div>
+      <!-- built files will be auto injected -->
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </body>
 </html>

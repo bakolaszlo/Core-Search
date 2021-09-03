@@ -41,8 +41,8 @@ namespace Core_Search
             }
 
             app.UseRouting();
-            app.UseSpaStaticFiles();
             app.UseAuthorization();
+            app.UseSpaStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {
