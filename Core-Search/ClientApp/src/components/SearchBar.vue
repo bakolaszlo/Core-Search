@@ -15,11 +15,7 @@
                   <div class="text_area">
                       <div class="asd"></div>
                       <input class="srch"
-                             maxlength="2048"
-                             name="q"
                              type="text"
-                             autofocus
-                             title="Search"
                              v-model="searchData" />
                   </div>
                   <div class="dRYYxd">
@@ -43,10 +39,12 @@
                   </div>
               </div>
           </div>
-          <button type="submit" class="search_btn">
-              Vuegle Search
-              <router-link :to="{ name: 'Search', path: 'search', params: { q: searchData } }"></router-link>
-          </button>
+          <router-link
+            :to="{ name: 'Search', params: { searchText: this.searchData } }"
+          >
+              <span>Search</span>
+            </router-link>
+          
           
 
           <input type="submit" value="I'm Feeling Lucky" class="lucky_btn" />
@@ -59,9 +57,9 @@ export default {
         name: "Search",
         data() {
             return {
-                searchData: "",
+                searchData: null,
             };
-        },
+        }
 };
 </script>
 
