@@ -1,4 +1,4 @@
-# clientapp
+# google-vue
 
 ## Project setup
 ```
