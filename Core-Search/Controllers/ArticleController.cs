@@ -2,21 +2,23 @@
 using Newtonsoft.Json.Linq;
 using RestSharp;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace Core_Search.Controllers
 {   
     [ApiController]
-    [Route("[controller]/{searchField}")]
+    [Route("[controller]")]
     public class ArticleController : ControllerBase
     {
         public ArticleController()
         {
         }
 
-        [HttpGet]
+        [HttpGet("{searchField}")]
         public IEnumerable<Article> Get(string searchField)
         {
             var client = new RestClient($"https://core.ac.uk:443/api-v2/search/{searchField}?page=1&pageSize=10&apiKey=BMnmqU7poFJc5HVLYNOwdGkE9QiR0DxI");
@@ -31,13 +33,16 @@ namespace Core_Search.Controllers
         {
             var json = JObject.Parse(content)["data"];
 
-            return Enumerable.Range(1, articlesNumber).Select(index =>
+            return Enumerable.Range(0, articlesNumber).Select(index =>
             {
                 var JsonSource = json[index]["_source"];
+                JArray categories = (JArray)JsonSource["authors"];
+                Console.WriteLine(categories);
                 return new Article
                 {
                     Id = JsonSource.Value<int>("id"),
-                    Author = JsonSource.Value<string>("publisher"),
+                    Author = categories.Select(c => (string)c).ToList(),
+                    //Author = JsonSource.Value<string>("publisher"),
                     Title = JsonSource.Value<string>("title"),
                     Description = JsonSource.Value<string>("description"),
                     Link = JsonSource.Value<string>("downloadUrl")
