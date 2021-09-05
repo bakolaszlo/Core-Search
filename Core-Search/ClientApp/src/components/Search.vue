@@ -216,7 +216,7 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 }
 
 .logo {
-  margin: 25px 0 auto 30px;
+  margin: 30px 30px auto 30px;
 }
 
 .searchBar:hover {
