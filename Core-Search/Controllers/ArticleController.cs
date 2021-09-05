@@ -31,6 +31,10 @@ namespace Core_Search.Controllers
 
         public IEnumerable<Article> ConvertResponseToArticle(string content, int articlesNumber = 9)
         {
+            if (content == null)
+            {
+                return null;
+            }
             var json = JObject.Parse(content)["data"];
 
             return Enumerable.Range(0, articlesNumber).Select(index =>
