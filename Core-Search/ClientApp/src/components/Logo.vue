@@ -2,7 +2,11 @@
   <div class="logo">
     <img
       class="google-logo"
-      src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+      src="../assets/vuegle.png"
+      style="
+    width: 272px;
+    height: 116px;
+"
     />
   </div>
 </template>

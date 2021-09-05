@@ -64,6 +64,7 @@ export default {
   font-size: 15px;
   color: rgba(0, 0, 0, 0.54);
   font-family: arial, sans-serif;
+  text-align: left;
 }
 
 .footer {
