@@ -19,7 +19,7 @@
     "Core_Search": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "index",
+      "launchUrl": "",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

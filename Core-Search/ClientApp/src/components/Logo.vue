@@ -3,9 +3,9 @@
     <img
       class="google-logo"
       src="../assets/vuegle.png"
-         style="
+      style="
     width: 272px;
-    height: 92px;
+    height: 116px;
 "
     />
   </div>
