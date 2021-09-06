@@ -63,7 +63,8 @@
           {{ article.description.substring(0, 400) + ".." }}
         </div>
         <div class="download-pdf">
-          <a class="get-pdf" :href="article.link" target="_blank">Get PDF</a>
+            <a v-if="article.link.length" class="get-pdf" :href="article.link" target="_blank">Get PDF</a>
+            <a v-else class="get-pdf">No link available</a>
         </div>
       </div>
     </div>
