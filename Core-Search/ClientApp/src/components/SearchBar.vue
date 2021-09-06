@@ -18,7 +18,12 @@
           </div>
           <div class="text_area">
             <div class="asd"></div>
-            <input class="srch" type="text" v-model="searchData" />
+            <input
+              class="srch"
+              type="text"
+              v-model="searchData"
+              v-on:keyup.enter="submitSearch"
+            />
           </div>
           <div class="dRYYxd">
             <div
@@ -54,10 +59,18 @@
       <router-link
         :to="{ name: 'Search', params: { searchText: this.searchData } }"
       >
-        <button class="search_btn">Vuegle Search</button>
+        <button class="search_btn" :disabled="this.searchData == null">
+          Vuegle Search
+        </button>
       </router-link>
 
-      <input type="submit" value="I'm Feeling Lucky" class="lucky_btn" />
+      <router-link
+        :to="{ name: 'Search', params: { searchText: this.searchData } }"
+      >
+        <button class="search_btn" :disabled="this.searchData == null">
+          I'm Feeling Lucky
+        </button>
+      </router-link>
     </form>
   </div>
 </template>

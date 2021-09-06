@@ -1,15 +1,15 @@
 ﻿<template>
   <div class="top">
     <div class="logo">
-      <img
-        class="google-logo"
-        src="../assets/vuegle.png"
-        style="
-    width: 128px;
-    height: 55px;
-"
-      />
+      <router-link to="/">
+        <img
+          class="google-logo"
+          src="../assets/vuegle.png"
+          style="width: 128px; height: 50px;"
+        />
+      </router-link>
     </div>
+
     <div class="searchBar">
       <div class="searchInput">
         <div class="searchIconHolder">
@@ -92,17 +92,19 @@ export default {
       return "https://core.ac.uk/image/" + article.id + "/medium";
     },
     submitSearch() {
-      this.$router.replace(`/search/${this.searchText}`);
-      var settings = {
-        url: "/article/" + this.searchText,
-        method: "GET",
-        timeout: 0,
-      };
+      if (this.searchText) {
+        this.$router.replace(`/search/${this.searchText}`);
+        var settings = {
+          url: "/article/" + this.searchText,
+          method: "GET",
+          timeout: 0,
+        };
 
-      $.ajax(settings).done((response) => {
-        console.log(response);
-        this.articles = response;
-      });
+        $.ajax(settings).done((response) => {
+          console.log(response);
+          this.articles = response;
+        });
+      }
     },
   },
   mounted() {
@@ -219,12 +221,12 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
   border: 1px solid #dfe1e5;
   box-shadow: none;
   border-radius: 24px;
-  margin: 30px auto 30px auto;
+  margin: 20px auto 20px auto;
   padding: 3px;
 }
 
 .logo {
-  margin: 30px 30px auto 30px;
+  margin: 20px 30px auto 30px;
 }
 
 .searchBar:hover {
