@@ -54,17 +54,23 @@
         </div>
         <div class="article-authors">
           By:
-          <a href="" v-for="(author, index) in article.author" :key="index"
+          <a href="" v-for="(author, index) in article.authors" :key="index"
             >{{ author
-            }}<span v-if="index < article.author.length - 1">, </span></a
+            }}<span v-if="index < article.authors.length - 1">, </span></a
           >
         </div>
         <div class="article-description" v-if="article.description">
           {{ article.description.substring(0, 400) + ".." }}
         </div>
         <div class="download-pdf">
-            <a v-if="article.link.length" class="get-pdf" :href="article.link" target="_blank">Get PDF</a>
-            <a v-else class="get-pdf">No link available</a>
+          <a
+            v-if="article.link"
+            class="get-pdf"
+            :href="article.link"
+            target="_blank"
+            >Get PDF</a
+          >
+          <a v-else class="get-pdf">No link available</a>
         </div>
       </div>
     </div>
