@@ -40,7 +40,9 @@ namespace Core_Search.Controllers
             return Enumerable.Range(0, articlesNumber).Select(index =>
             {
                 var JsonSource = json[index]["_source"];
+                JArray categories = (JArray)JsonSource["authors"];
                 JArray authors = (JArray)JsonSource["authors"];
+
                 return new Article
                 {
                     Id = JsonSource.Value<int>("id"),
