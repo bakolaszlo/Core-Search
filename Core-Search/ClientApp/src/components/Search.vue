@@ -60,11 +60,10 @@
           >
         </div>
         <div class="article-description" v-if="article.description">
-          {{ article.description.substring(0, 400) + "..." }}
+          {{ article.description.substring(0, 400) + ".." }}
         </div>
         <div class="download-pdf">
-          <a v-if="article.link.length" class="get-pdf" :href="article.link" target="_blank">Get PDF</a>
-          <a v-else class="get-pdf">No link available</a> 
+          <a class="get-pdf" :href="article.link" target="_blank">Get PDF</a>
         </div>
       </div>
     </div>

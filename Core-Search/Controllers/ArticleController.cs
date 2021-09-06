@@ -29,7 +29,7 @@ namespace Core_Search.Controllers
             return ConvertResponseToArticle(response.Content);
         }
 
-        public IEnumerable<Article> ConvertResponseToArticle(string content, int articlesNumber = 10)
+        public IEnumerable<Article> ConvertResponseToArticle(string content, int articlesNumber = 9)
         {
             if (content == null)
             {
@@ -40,11 +40,12 @@ namespace Core_Search.Controllers
             return Enumerable.Range(0, articlesNumber).Select(index =>
             {
                 var JsonSource = json[index]["_source"];
-                JArray authors = (JArray)JsonSource["authors"];
+                JArray categories = (JArray)JsonSource["authors"];
+                Console.WriteLine(categories);
                 return new Article
                 {
                     Id = JsonSource.Value<int>("id"),
-                    Author = authors.Select(author => (string)author).ToList(),
+                    Author = categories.Select(c => (string)c).ToList(),
                     //Author = JsonSource.Value<string>("publisher"),
                     Title = JsonSource.Value<string>("title"),
                     Description = JsonSource.Value<string>("description"),
