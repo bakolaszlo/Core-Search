@@ -31,25 +31,37 @@ namespace Core_Search.Controllers
         [NonAction]
         public IEnumerable<Article> ConvertResponseToArticle(string content, int articlesNumber = 9)
         {
+            var status = JObject.Parse(content)["status"];
+
             if (content == null)
             {
                 return null;
             }
-            var json = JObject.Parse(content)["data"];
 
-            return Enumerable.Range(0, articlesNumber).Select(index =>
+            if(status.ToString() == "OK")
             {
-                var JsonSource = json[index]["_source"];
-                JArray authors = (JArray)JsonSource["authors"];
-                return new Article
+                var json = JObject.Parse(content)["data"];
+
+                return Enumerable.Range(0, articlesNumber).Select(index =>
                 {
-                    Id = JsonSource.Value<int>("id"),
-                    Authors = authors.Select(c => (string)c).ToList(),
-                    Title = JsonSource.Value<string>("title"),
-                    Description = JsonSource.Value<string>("description"),
-                    Link = JsonSource.Value<string>("downloadUrl")
-                };
-            }).ToArray();
+                    var JsonSource = json[index]["_source"];
+                    JArray authors = (JArray)JsonSource["authors"];
+                    return new Article
+                    {
+                        Id = JsonSource.Value<int>("id"),
+                        Authors = authors.Select(c => (string)c).ToList(),
+                        Title = JsonSource.Value<string>("title"),
+                        Description = JsonSource.Value<string>("description"),
+                        Link = JsonSource.Value<string>("downloadUrl")
+                    };
+                }).ToArray();
+            }
+            else
+            {
+                return null;
+            }
+            
+            
         }
     }
 }

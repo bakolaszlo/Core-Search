@@ -39,6 +39,7 @@
   </div>
   <hr />
   <div class="article_holder">
+    <h2 v-if="!articles">No results found.</h2>
     <div class="article" v-for="article in articles" :key="article.id">
       <div class="article-preview">
         <a :href="article.link">
