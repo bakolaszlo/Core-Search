@@ -22,7 +22,7 @@ namespace Core_Search.Tests
             var firstArticle = ((Article[])output)[0];
             Assert.Equal(233175071, firstArticle.Id);
             Assert.Equal("CIRCUM-BALTIC MYTHOLOGY? THE STRANGE CASE OF THE THEFT OF THE THUNDER-INSTRUMENT (ATU 1148B)", firstArticle.Title);
-            Assert.Equal("FROG, FROG", firstArticle.Author[0]);
+            Assert.Equal("FROG, FROG", firstArticle.Authors[0]);
             Assert.Equal("The myth of the Theft of the Thunder-Instrument (ATU 1148b) is found almost exclusively in the Circum-Baltic area. It is found among both Indo-European and Finno-Ugric cultures. This implies that it was adapted from one into the other, unless both assimilated it from a common cultural stratum. This paper surveys this mythological narrative tradition that is found in Baltic, Finnic, Germanic and Sámic cultures. It proposes that the tradition’s persistence in a Circum-Baltic isogloss is a consequence of historical contact and interaction between these cultures, and that its evolution has been dependent on that history of contact and exchange.DOI: http://dx.doi.org/10.15181/ab.v15i1.2",firstArticle.Description);
             Assert.Equal("https://core.ac.uk/download/pdf/233175071.pdf", firstArticle.Link);
         }

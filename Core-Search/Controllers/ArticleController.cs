@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 
 namespace Core_Search.Controllers
-{   
+{
     [ApiController]
     [Route("[controller]")]
     public class ArticleController : ControllerBase
@@ -28,7 +28,7 @@ namespace Core_Search.Controllers
 
             return ConvertResponseToArticle(response.Content);
         }
-
+        [NonAction]
         public IEnumerable<Article> ConvertResponseToArticle(string content, int articlesNumber = 9)
         {
             if (content == null)
@@ -44,8 +44,7 @@ namespace Core_Search.Controllers
                 return new Article
                 {
                     Id = JsonSource.Value<int>("id"),
-                    Author = authors.Select(c => (string)c).ToList(),
-                    //Author = JsonSource.Value<string>("publisher"),
+                    Authors = authors.Select(c => (string)c).ToList(),
                     Title = JsonSource.Value<string>("title"),
                     Description = JsonSource.Value<string>("description"),
                     Link = JsonSource.Value<string>("downloadUrl")

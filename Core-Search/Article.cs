@@ -9,7 +9,7 @@ namespace Core_Search.Controllers
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public List<string> Author { get; set; }
+        public List<string> Authors { get; set; }
         public string Description { get; set; }
         public string Link { get; set; }
     }
